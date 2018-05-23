@@ -18,7 +18,7 @@ class referenceWizard(object):
             fname_exclude = [fname_exclude]
         for fname in fname_exclude:
             with open(fname) as bibtex_file:
-                bibtex_database = bibtexparser.load(bibtex_file)
+                bibtex_database = bibtexparser.load(bibtex_file,parser=bibtexparser.bparser.BibTexParser(common_strings=True))
             for key in bibtex_database.entries_dict.keys():
                 if(key in self.decyphered_refs):
                     if(self.verbose):
