@@ -65,5 +65,7 @@ class referenceWizard(object):
         self.bibs = exp.execute()
         for i,key in enumerate(temp_keys):
             self.bibs = self.bibs.replace("{"+key[1],"{"+key[0])
+        import bibtexparser
+        self.bibs = bibtexparser.loads(self.bibs,parser=bibtexparser.bparser.BibTexParser(common_strings=True))
             
             
